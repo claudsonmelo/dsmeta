@@ -16,16 +16,16 @@ function SalesCard() {
   const [minDate, setMinDate] = useState(min);
   const [maxDate, setMaxDate] = useState(max);
 
-  const dmin = minDate.toISOString().slice(0, 10);
-  const dmax = maxDate.toISOString().slice(0, 10);
-
-  console.log(dmin);
-  console.log(dmax);
-
   useEffect(() => {
+    const dmin = minDate.toISOString().slice(0, 10);
+    const dmax = maxDate.toISOString().slice(0, 10);
+    console.log(dmin);
     console.log("Teste");
     //axios.get("/sales?minDate=${dmin}&maxDate=${dmax}").then((response) => {
     axios
+      //.get('http://localhost:8080/sales?minDate=${dmin}&maxDate=${dmax}")
+      //.get("http://localhost:8080/sales")
+      //.get("${BASE_URL}/sales?minDate=${dmin}&maxDate=${dmax}")
       .get("http://localhost:8080/sales")
       .then((response) => {
         //console.log(response.data.content);
