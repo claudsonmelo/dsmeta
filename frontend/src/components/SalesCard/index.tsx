@@ -20,15 +20,12 @@ function SalesCard() {
     const dmin = minDate.toISOString().slice(0, 10);
     const dmax = maxDate.toISOString().slice(0, 10);
     console.log(dmin);
-    console.log("Teste");
-    //axios.get("/sales?minDate=${dmin}&maxDate=${dmax}").then((response) => {
+    console.log(dmax);
+    console.log(`${BASE_URL}/sales?minDate=${dmin}&maxDate=${dmax}`);
+
     axios
-      //.get('http://localhost:8080/sales?minDate=${dmin}&maxDate=${dmax}")
-      //.get("http://localhost:8080/sales")
-      //.get("${BASE_URL}/sales?minDate=${dmin}&maxDate=${dmax}")
-      .get("http://localhost:8080/sales")
+      .get(`${BASE_URL}/sales?minDate=${dmin}&maxDate=${dmax}`)
       .then((response) => {
-        //console.log(response.data.content);
         setSales(response.data.content);
       })
       .catch((error) => console.log(error));
